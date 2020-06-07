@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
             printf( "*(p + %d) : %d\n", j, *(p + j));
        } 
        free(data);    
-       free(p);          
+    //    free(p);          
     }    
     return 0;
 }
