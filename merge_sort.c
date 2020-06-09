@@ -29,13 +29,16 @@ int main(void)
         for (i = 0; i < n; i++)
         {
             printf( "arr[%d] = %d\n", i, arr[i]);        
-        } 
-    }      
+        }         
+    }  
+    // free space
+    free (arr);    
+    return 0;    
 }
 
 int * merge_sort(int len, int *arr)
 {
-    // create variable for the new_array
+    // create variable for the new_array    
     int *new_arr = NULL;
     // prepare other variables
     int left;
@@ -50,7 +53,6 @@ int * merge_sort(int len, int *arr)
         if (new_arr != NULL)
         {
             new_arr[0] = arr[0];
-            return new_arr;
         }        
     }
     else
@@ -124,6 +126,9 @@ int * merge_sort(int len, int *arr)
                 }
             }                
         }               
-    }  
-    return new_arr;   
+    }     
+    free (left_arr);
+    free (right_arr);
+    free(arr);
+    return new_arr;     
 }
