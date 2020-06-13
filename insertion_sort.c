@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
        {
             printf( "*(p + %d) : %d\n", j, *(p + j));
        } 
-       free(data);    
-    //    free(p);          
+       free(data);
+       free(p);          
     }    
     return 0;
 }
