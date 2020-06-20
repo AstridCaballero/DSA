@@ -96,6 +96,18 @@ int main(void)
     // print dedup linked list
     printf("Data in deduped list:\n");
     display_nodes(list);   
+
+    // free list
+    // I need to free what is behind me
+    while (list != NULL)
+    {
+        node *tmp = list->next;
+        free(list);
+        list = tmp;
+    }  
+    free (table);    
+
+    return 0;
 }
 
 void display_nodes(node *list)
