@@ -11,6 +11,7 @@ node;
 
 // prototype
 void display_nodes(node *list);
+node * create_list(int n);
 
 int main(void)
 {
@@ -21,34 +22,7 @@ int main(void)
 
     // Create empty list
     node *list = NULL;
-    // Add first node
-    int num;
-    node *new_node = malloc(sizeof(node));
-    if (new_node == NULL)
-    {
-        return 1;
-    }
-    printf("Enter node 1:");
-    scanf("%i", &num);
-    new_node->num = num;
-    new_node->next = NULL;
-    list = new_node;
-
-    // Add the remaining nodes
-    int i;
-    for (i = 1; i < n; i++)
-    {
-        new_node = malloc(sizeof(node));
-        if (new_node == NULL)
-        {
-            return 1;
-        }
-        printf("enter node %i: ", i + 1);
-        scanf("%i", &num);
-        new_node->num = num;
-        new_node->next = list;
-        list = new_node;
-    }
+    list = create_list(n);
     printf("Data entered in the list:\n");
     display_nodes(list);  
 
@@ -108,6 +82,39 @@ int main(void)
     free (table);    
 
     return 0;
+}
+
+node * create_list(int n)
+{
+    // Create empty list
+    node *list = NULL;
+    // Add first node
+    int num;
+    node *new_node = malloc(sizeof(node));
+    if (new_node != NULL)
+    {  
+        printf("Enter node 1:");
+        scanf("%i", &num);
+        new_node->num = num;
+        new_node->next = NULL;
+        list = new_node;
+
+        // Add the remaining nodes
+        int i;
+        for (i = 1; i < n; i++)
+        {
+            new_node = malloc(sizeof(node));
+            if (new_node != NULL)
+            {
+                printf("enter node %i: ", i + 1);
+                scanf("%i", &num);
+                new_node->num = num;
+                new_node->next = list;
+                list = new_node;
+            }
+        }
+    }
+    return list;
 }
 
 void display_nodes(node *list)
