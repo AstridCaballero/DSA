@@ -15,7 +15,8 @@
             "environment": [],
             "externalConsole": true,
             "MIMode": "lldb",
-            "preLaunchTask": "shell: clang build active file"
+            "preLaunchTask": "shell: clang build active file",
+            "logging": { "engineLogging": true, "trace": true, "traceResponse": true }
         }
     ]
 }
